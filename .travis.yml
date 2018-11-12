@@ -13,7 +13,6 @@ after_success:
   - docker build -t yemwl/multi-nginx ./nginx
   - docker build -t yemwl/multi-server ./server
   - docker build -t yemwl/multi-worker ./worker
-
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push thm to docker hub
