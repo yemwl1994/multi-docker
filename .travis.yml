@@ -14,7 +14,8 @@ after_success:
   - docker build -t yemwl/multi-server:v1.0.0 -f ./server/Dockerfile ./server
   - docker build -t yemwl/multi-worker:v1.0.0 -f ./worker/Dockerfile ./worker
   # Log in to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login -u "$DOCKER_ID"  -p "$DOCKER_PASSWORD"
+  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push thm to docker hub
   - docker push docker.io/yemwl/multi-client:v1.0.0
   - docker push docker.io/yemwl/multi-nginx:v1.0.0
