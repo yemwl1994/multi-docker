@@ -9,10 +9,10 @@ script:
   - docker run yemwl/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t yemwl/multi-client ./client
-  - docker build -t yemwl/multi-nginx ./nginx
-  - docker build -t yemwl/multi-server ./server
-  - docker build -t yemwl/multi-worker ./worker
+  - docker build -t yemwl/multi-client:latest ./client
+  - docker build -t yemwl/multi-nginx:latest ./nginx
+  - docker build -t yemwl/multi-server:latest ./server
+  - docker build -t yemwl/multi-worker:latest ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push thm to docker hub
